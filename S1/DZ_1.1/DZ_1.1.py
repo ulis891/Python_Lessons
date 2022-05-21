@@ -4,11 +4,11 @@
 
 while True:
     try:
-        number = int(input("Введите цифру, обозначающую день недели: "))
-        if number in range(6, 8):
-            print("ДА! Выходной!")
-        elif number in range(1, 6):
+        day_number = int(input("Введите цифру, обозначающую день недели: "))
+        if day_number in range(1, 6):
             print("Работать!!!!")
+        elif day_number in range(6, 8):
+            print("ДА! Выходной!")
         else:
             print("Нет такого дня недели")
         break
