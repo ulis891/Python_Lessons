@@ -17,4 +17,3 @@ def list_shuffle(list_to_shuffle):
 
 
 print(f'Начальный список: {list} \nИзмененный список: {list_shuffle(list)}')
-
