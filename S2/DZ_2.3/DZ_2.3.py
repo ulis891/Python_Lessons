@@ -16,4 +16,4 @@ def list_shuffle(list_to_shuffle):
     return new_list
 
 
-print(f'Начальный список: {list} \nИзмененный список: {list_shuffle(list)}')
+print(f'Начальный список: {data_list} \nИзмененный список: {list_shuffle(data_list)}')
