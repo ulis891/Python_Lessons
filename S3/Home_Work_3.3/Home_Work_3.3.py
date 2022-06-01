@@ -7,7 +7,7 @@ while True:
     try:
         n = int(input('Введите колличество чисел: '))
 
-        float_list = []
+        float_list = [ ]
         for i in range(0, n):
             float_list.append(round(r.uniform(0, 10), 2))
         print(float_list)
