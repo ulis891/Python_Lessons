@@ -9,8 +9,8 @@ def nega_fibonachi(n):
         fibo_list.append(fibo_list[i - 1] + fibo_list[i - 2])
         nega_fibo_list.append(nega_fibo_list[i - 2] - nega_fibo_list[i - 1])
     nega_fibo_list.reverse()
-    result = nega_fibo_list[:-1] + fibo_list
-    print(result)
+    return nega_fibo_list[:-1] + fibo_list
+
 
 
 while True:
@@ -19,7 +19,7 @@ while True:
         if num == 0:
             print([0])
         else:
-            nega_fibonachi(num)
+            print(nega_fibonachi(num))
         break
     except (TypeError, ValueError):
         print('Вы ввели неверные данные')
