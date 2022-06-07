@@ -10,7 +10,7 @@
 import random
 
 
-def players_names():
+def players_names():  # Определяем имена игроков
     player1 = input('Введите имя первого игрока: ')
     player2 = input('Введите имя второго игрока (если хотите играть с ботом, то оставьте поле пустым): ')
 
@@ -19,13 +19,12 @@ def players_names():
     return player1, player2
 
 
-def player_move(name):
+def player_move(name):  # Ход игрока - человека
     while True:
         try:
             mv = int(input(f'{name}, берите конфеты: '))
             if 1 <= mv <= 28:
                 return mv
-                break
             else:
                 print('Неверное количество конфет')
                 print('Возьмите от 1 до 28 конфет')
@@ -34,7 +33,7 @@ def player_move(name):
             print('Введите число!!!')
 
 
-def bot_move(cand):  # bot, который пытается оставить 29 кофет на столе
+def bot_move(cand):     # bot, который пытается оставить 29 конфет на столе
     if cand % 29 == 0:
         mv = random.randint(1, 28)
     else:
@@ -42,40 +41,34 @@ def bot_move(cand):  # bot, который пытается оставить 29 
     return mv
 
 
-def start_game(p1, p2):  # Определяет первого игрока
+def start_game(p1, p2):  # Определяем первого игрока
     start = random.randint(1, 10)
     if start % 2 == 0:
-        player_move = p1
+        player = p1
     else:
-        player_move = p2
-    print(f'Начинает {player_move}')
-    return player_move
+        player = p2
+    print(f'Начинает {player}')
+    return player
 
 
 def candies_game(names):  # Тело игры
     p1, p2 = names
-    candies = 2021
+    candies = 200
     player = start_game(p1, p2)
     while candies > 28:
-        while True:
-            if player != 'Bot':
-                move = player_move(player)
-
-                if player == p1:
-                    player = p2
-                else:
-                    player = p1
-                candies -= move
-                print(f'Осталось конфет: {candies}')
-                break
+        if player != 'Bot':
+            move = player_move(player)
+            if player == p1:
+                player = p2
             else:
-                move = bot_move(candies)
-                candies -= move
-                print(f'{player} берёт {move} конфет')
                 player = p1
-                print(f'Осталось конфет: {candies}')
-                break
-
+            candies -= move
+        else:
+            move = bot_move(candies)
+            candies -= move
+            print(f'{player} берёт {move} конфет')
+            player = p1
+        print(f'Осталось конфет: {candies}')
     else:
         print(f'{player}, победил!!!!')
 
