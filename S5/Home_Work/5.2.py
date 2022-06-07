@@ -33,7 +33,7 @@ def player_move(name):  # Ход игрока - человека
             print('Введите число!!!')
 
 
-def bot_move(cand):     # bot, который пытается оставить 29 конфет на столе
+def bot_move(cand):  # bot, который пытается оставить 29 конфет на столе
     if cand % 29 == 0:
         mv = random.randint(1, 28)
     else:
