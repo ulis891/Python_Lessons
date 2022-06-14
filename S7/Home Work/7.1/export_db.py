@@ -8,7 +8,7 @@ def cvs_export(surname, name, tel, description):
 
 def txt_export(surname, name, tel, description):
     with open('DataBase/txtDB.txt', 'a+', encoding='utf-8') as file:
-        file.write(f'{surname}\n{name}\n{tel}\n{description}\n\n')
+        file.write(f'surname: {surname}\nname: {name}\ntel: {tel}\ndescription: {description}\n\n')
 
 # def json_export(surname, name, tel, description):
 #     new_json = {tel: {"surname": surname,
