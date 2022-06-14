@@ -1,0 +1,5 @@
+time;17:42; value1;(5+3j); sing;+; value2;(6+2j);result; (11+5j)
+time;17:43; value1;(6+3j); sing;/; value2;(2+5j);result; (0.9310344827586208-0.8275862068965517j)
+time;17:46; value1;(4+0j); sing;+; value2;(6+0j);result; (10+0j)
+time;17:49; value1;(5+6j); sing;-; value2;(5+1j);result; 5j
+time;18:00; value1;(5+6j); sing;*; value2;(3+2j);result; (3+28j)
