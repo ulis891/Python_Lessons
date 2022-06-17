@@ -1,0 +1,21 @@
+﻿id;surname;name;kinship;tel;student id
+1;Ivanov;Aleksandr;father;89648594856;1
+2;Ivanova;Marina;mother;89996544847;1
+3;Petrov;Artemiy;father;89874456321;2
+4;Petrova;Ekaterina;mother;89648594856;2
+5;Sidorov;Ivan;father;89996544847;3
+6;Sidorova;Sofia;mother;89874456321;3
+7;Altynbaev;Iluzbek;father;89648594856;4
+8;Lomov;Nilolay;father;89996544847;5
+9;Lomova;Natalia;mother;89874456321;5
+10;Popov;Foma;father;89648594856;6
+11;Kovalenko;Ekaterina;mother;89996544847;7
+12;Reese;Kyle;father;89874456321;8
+13;Connor;Sarah;mother;89648594856;8
+14;Petrova;Elena;mother;89996544847;9
+15;Fomina;Larisa;mother;89874456321;10
+16;Knopov;Ruslan;father;89695642525;11
+17;Knopova;Alisa;mather;85456542525;11
+18;Tomov;Pavel;father;89996665555;12
+19;Komova;Mila;mother;85654785858;13
+20;Komov;Magomed;father;87475698987;13
