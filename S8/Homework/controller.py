@@ -16,10 +16,10 @@ def button_click():
 
             for i in range(ui.count_parents()):
                 par_count = ex.find_last_parent()
-                surname = ui.get_value(f'{i+1} parent surname')
-                name = ui.get_value(f'{i+1} parent name')
-                kinship = ui.get_value(f'{i+1} parent kinship')
-                tel = ui.get_value(f'{i+1} parent tel')
+                surname = ui.get_value(f'{i+1} parent\'s surname')
+                name = ui.get_value(f'{i+1} parent\'s name')
+                kinship = ui.get_value(f'{i+1} parent\'s kinship')
+                tel = ui.get_value(f'{i+1} parent\'s phone number')
                 std_id = int(ex.find_last_student()) - 1
                 ex.parents_export(par_count, surname, name, kinship, tel, std_id)
 

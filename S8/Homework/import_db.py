@@ -12,9 +12,9 @@ def db_import():
             with open('DataBase/Students.txt', encoding='utf-8') as f:
                 for row in f:
                     if request in row:
-                        id_list.append(row.split(';')[0])
-                        data.append(row)
-                if len(data) == 0:
+                        id_list.append(row.split(';')[0])       # Запоминаем найденные ID
+                        data.append(row)                        # Запоминаем найденных учеников
+                if len(data) == 0:                              # Проверяем нахождение учеников
                     ui.unknown('name')
                     break
                 else:

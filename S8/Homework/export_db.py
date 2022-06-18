@@ -1,7 +1,4 @@
-import user_interface as ui
-
-
-def find_last_student():
+def find_last_student():  # Находит последнюю запись учеников
     with open('DataBase/Students.txt', 'r', encoding='utf-8') as file:
         last_student = 0
         for row in file:
@@ -9,7 +6,7 @@ def find_last_student():
     return str(last_student)
 
 
-def find_last_parent():
+def find_last_parent():  # Находит последнюю запись родителей
     with open('DataBase/Parents.txt', 'r', encoding='utf-8') as file:
         last_parent = 0
         for row in file:
