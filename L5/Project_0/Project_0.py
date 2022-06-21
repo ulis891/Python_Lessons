@@ -5,7 +5,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 
 
-app = ApplicationBuilder().token("5325614124:AAFagHdyETOnLB6C8_m4J6NdKQNfPMrpiYM").build()
+app = ApplicationBuilder().token("*****************************************").build()
 
 app.add_handler(CommandHandler("hello", bc.hello))
 app.add_handler(CommandHandler("time", bc.time))
