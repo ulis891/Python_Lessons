@@ -25,7 +25,7 @@ def log(surname, name, tel, description):
         for row in file:
             count += 1
     with open('DataBase/csvDB.csv', 'a+', encoding='utf-8') as log:
-        log.write(f'{count}:{surname};{name};{tel};{description}\n')
+        log.write(f'{count};{surname};{name};{tel};{description}\n')
 
     with open('DataBase/txtDB.txt', 'a+', encoding='utf-8') as file:
         file.write(f'{count}: surname: {surname}\nname: {name}\ntel: {tel}\ndescription: {description}\n\n')
