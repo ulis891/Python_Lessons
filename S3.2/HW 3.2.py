@@ -84,7 +84,7 @@ print('Ближайшие числа в массиве', search_nearest(random_l
 *Пример:*
 
 ноутбук
-    12
+     12
 '''
 
 abc_score = {
