@@ -15,7 +15,7 @@ from random import randint as r
 
 
 def make_array(array_len: int) -> list:
-    """создание массива"""
+    """Создание массива"""
     array = []
     i = 1
     while i < array_len:
@@ -25,13 +25,14 @@ def make_array(array_len: int) -> list:
     return array
 
 
-def count_x(array: list, number: int) -> int :
-    """поиск и подсчёт числа"""
+def count_x(array: list, number: int) -> int:
+    """Поиск и подсчёт числа"""
     count = 0
     for i in array:
         if i == number:
             count += 1
     return count
+
 
 def search_nearest(array: list, number: int) -> list:
     """Поиск ближайших чисел"""
@@ -46,6 +47,7 @@ def search_nearest(array: list, number: int) -> list:
         elif abs(i - number) == near and i not in nearest_numbers:
             nearest_numbers.append(i)
     return nearest_numbers
+
 
 n = int(input('Введите количество элементов в масиве: '))
 x = int(input('Введите число для поиска: '))
@@ -94,7 +96,7 @@ abc_score = {
     'FHVWYЙЫ': 4,
     'KЖЗХЦЧ': 5,
     'JXШЭЮ': 8,
-    'QZФЩЪ': 10,
+    'QZФЩЪ': 10
 }
 
 user_word = input('Введите слово:  ').upper()
