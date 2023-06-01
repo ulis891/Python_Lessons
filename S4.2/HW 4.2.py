@@ -32,31 +32,31 @@ print(set(sorted(array)))
 находясь перед некоторым кустом заданной во входном файле грядки.
 """
 
-# import random
+import random
 
-# n = random.randint(3, 10)       # создаём грядку с рандомным количеством кустов от 3 до 10
+n = random.randint(3, 10)       # создаём грядку с рандомным количеством кустов от 3 до 10
 
-# garden_bed = [random.randrange(1, 50) for i in range(n)]        # заполняем рандомно кусты ягодами
+garden_bed = [random.randrange(1, 50) for i in range(n)]        # заполняем рандомно кусты ягодами
 
 
-# def make_kust_array(array: list) -> list:
-#     """создаёт масив из рядом стоящих кустов"""
-#     three_bushes = []
-#     for i in range(len(array)):
-#         if i != len(array)-1:
-#             three_bushes.append([array[i-1], array[i], array[i+1]])
-#         else:
-#             three_bushes.append([array[i-1], array[i], array[0]])
-#     return three_bushes
+def make_kust_array(array: list) -> list:
+    """создаёт масив из рядом стоящих кустов"""
+    three_bushes = []
+    for i in range(len(array)):
+        if i != len(array)-1:
+            three_bushes.append([array[i-1], array[i], array[i+1]])
+        else:
+            three_bushes.append([array[i-1], array[i], array[0]])
+    return three_bushes
 
-# def find_max_kust (func) -> int: 
-#     """Находим максимальное количество ягод, которое можно собрать с 3 кустов"""
-#     sort_kust = []
-#     for k in func:
-#         sort_kust.append(sum(k))
-#     return max(sort_kust)
+def find_max_kust (func) -> int: 
+    """Находим максимальное количество ягод, которое можно собрать с 3 кустов"""
+    sort_kust = []
+    for k in func:
+        sort_kust.append(sum(k))
+    return max(sort_kust)
 
-# print(f"""
-#       В этом сезоне урадилось {n} кустов черники.
-#       Количество ягод по кустам {garden_bed}.
-#       Максимально с 3-х рядомстоящих кустов, можно собрать {find_max_kust(make_kust_array(garden_bed))} ягод.""")
+print(f"""
+      В этом сезоне урадилось {n} кустов черники.
+      Количество ягод по кустам {garden_bed}.
+      Максимально с 3-х рядомстоящих кустов, можно собрать {find_max_kust(make_kust_array(garden_bed))} ягод.""")
