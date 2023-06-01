@@ -5,13 +5,14 @@ import random as r
 Выведите минимальное количество монет, которые нужно перевернуть'''
 
 n = int(input('Введите количество монеток: '))
-coins = r.choices([1,0],k = n)     # генерируем случайную последовательность 0 и 1
+# генерируем случайную последовательность 0 и 1
+coins = r.choices([1, 0], k=n)
 o = coins.count(0)      # считаем количество монеток повернутых "орлом"
 r = coins.count(1)      # считаем количество монеток повернутых "решкой"
 if o >= r:      # сравниваем количество монеток
-    t=r
+    t = r
 else:
-    t=o
+    t = o
 print(f'Нужно перевернуть {t} монеток')     # выводим результат
 
 
@@ -30,6 +31,7 @@ for i in range(1, sum):
         break
     else:
         res = 'Решения нет'
+
 print(res)
 
 
@@ -40,3 +42,15 @@ print(res)
 
 n = int(input('Введите число: '))
 print([2**i for i in range(n//2) if 2**i < n])
+
+
+numbers = [2, 5, 13, 7, 6, 4]
+size = 6
+sum = 0
+avg = 0
+index = 0
+while index < size:
+    sum = sum + numbers[index]
+    index = index + 1
+avg = sum/size
+print(avg)
