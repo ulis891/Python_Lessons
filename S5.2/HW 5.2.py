@@ -8,15 +8,16 @@ A = 3; B = 5 -> 243 (3⁵)
 """
 
 
-def mul(a: int, b: int) -> int:
-    print(a, b)
-    if b < 2:
+def mul(a_a: int, b_b: int) -> int:
+    """Считаем степень числа"""
+    print(a_a, b_b)
+    if b_b < 2:
         return 'Reshenie'
     else:
-        mul(a * st, b - 1)
+        return mul(a_a * st, b_b - 1)
 
 
-n = int(input('Введите число: '))
+st = n = int(input('Введите число: '))
 m = int(input('Введите степень: '))
-st = n
-print(mul(n, m))
+rtt = mul(n, m)
+print(rtt)
