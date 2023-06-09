@@ -1,3 +1,5 @@
+"""Задача 30"""
+
 a1 = int(input())
 d = int(input())
 n = int(input())
@@ -6,7 +8,6 @@ for i in range(n):
 
 
 """Задача 32"""
-
 
 list_1 = [-5, 9, 0, 3, -1, -2, 1, 4, -2, 10, 2, 0, -9, 8, 10, -9, 0, -5, -5, 7]
 min_number = int(input())
