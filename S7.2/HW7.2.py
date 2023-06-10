@@ -21,29 +21,58 @@ poem = 'пара-ра-рам рам-пам-папам па-ра-па-да'
 # poem = input("Введите стих: ")
 
 s1 = poem.split(' ')
-print(s1)
 
 for i in s1:
     count_dic[i] = 0
     for char in i:
         if char in slog_dic:
             count_dic[i] += 1
-print(count_dic)
+
 for j,p in count_dic.items():
     count_list.append(p)
     
-print(count_dic)
+if len(list(filter(lambda x: x-count_list[0] == 0, count_list ))) != len(count_list):
+    print("Пам парам")
+else:
+    print("Парам пам-пам")
 
-vvv = iter(list(count_dic.values()))
-for k in vvv:
-    print(k)
-    if k != next(vvv, "Парам пам-пам"):
-        # print("Пам парам")
-        break
-    pr
-# for k in range(len(count_list)-1):
-#     if count_list[k] != count_list[k+1]:
-#         print("Пам парам")
-#         break
-#     if count_list[k] == count_list[-1]:
-#         print("Парам пам-пам")
+
+"""
+Задача 36:
+Напишите функцию print_operation_table(operation, num_rows=6, num_columns=6),
+которая принимает в качестве аргумента функцию, 
+вычисляющую элемент по номеру строки и столбца.
+Аргументы num_rows и num_columns указывают число строк и столбцов таблицы,
+которые должны быть распечатаны.
+Нумерация строк и столбцов идет с единицы (подумайте, почему не с нуля).
+Примечание: бинарной операцией называется любая операция,
+у которой ровно два аргумента, как, например, у операции умножения.
+
+*Пример:*
+
+**Ввод:** `print_operation_table(lambda x, y: x * y) ` 
+**Вывод:**
+"""
+
+def create_matrix (a):
+    arr = [i for i in range(1,a+1)]
+    for k in arr:
+        print(k, end=' ')
+        print('\n')
+        for k in arr:
+            print(k, k*k, end=' ')
+    print(arr)
+
+
+array1 = [[1,2],[3,4],[5,6]]
+
+def print_matrix(array: list):
+    for i in array:
+        print('\n')
+        for j in i:
+            print('\n')
+            print(j,end=' ')
+            
+
+# print_matrix(array1)
+create_matrix(5)
