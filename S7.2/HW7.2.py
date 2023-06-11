@@ -54,25 +54,31 @@ else:
 **Вывод:**
 """
 
-def create_matrix (a):
+def create_matrix (func, a, b):
+    
     arr = [i for i in range(1,a+1)]
+    for l in arr:
+        print(l, end=' ')
+    print('\n')
     for k in arr:
-        print(k, end=' ')
+        # print(k, end='   ')
+        for j in range(1, b):
+            res = func(k,j)
+            print(res, end=' ')
         print('\n')
-        for k in arr:
-            print(k, k*k, end=' ')
-    print(arr)
+        # res = list(map(func, arr))
+        # for j in res:
+        #     if len(str(j)) == 1:
+        #         print(j, end=' ' * 3)
+        #     elif len(str(j)) == 2:
+        #         print(j, end=' ' * 2)
+        #     else:
+        #         print(j, end=' ')
+        # print('\n')
 
+# print_operation_table(lambda x, y: x * y)
 
-array1 = [[1,2],[3,4],[5,6]]
-
-def print_matrix(array: list):
-    for i in array:
-        print('\n')
-        for j in i:
-            print('\n')
-            print(j,end=' ')
-            
+            # lambda t: t + k
 
 # print_matrix(array1)
-create_matrix(5)
+create_matrix((lambda t,k: t + k), 5 , 5)
