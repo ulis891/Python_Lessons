@@ -13,7 +13,7 @@
     **Вывод:** Парам пам-пам
 """
 
-slog_dic = 'йуеыаоэяию'
+slog_dic = 'йуеыаоэяиюeyuoai'
 count_dic = {}
 count_list = []
 
