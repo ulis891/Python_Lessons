@@ -1,5 +1,6 @@
 phonebook = 'phonebook.txt'
 
+
 def separator():
     print('-' * 40)
 
