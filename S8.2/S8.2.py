@@ -4,7 +4,7 @@ def find_last() -> str:
         row_counter = 1
         for row in file:
             row_counter += 1
-    return str(row_counter)
+    return row_counter
 
 def rebild_id():
     count = 1
@@ -15,19 +15,19 @@ def rebild_id():
             if id != count:
                 row.split(';')[0] = count
             row
-    with open('phonebook.txt', 'a+', encoding='utf-8') as file:
-        file.write(f'{};{name};{surname};{phone_number}\n')
 
-rebild_id()
+
 
 def add_user () -> None:
     '''Добавляет нового пользователя в '''
-    name = input('Name: ').upper()
-    surname = input('Surname: ').upper()
-    phone_number = input('Phone number: ')
-    row_counter = 0
+    user = []
+    user.extend([find_last(),
+                 input('Name: ').upper(),
+                 input('Secondname: ').upper(),
+                 input('Surname: ').upper(),
+                 input('Phone number: ')])
     with open('phonebook.txt', 'a+', encoding='utf-8') as file:
-        file.write(f'{find_last()};{name};{surname};{phone_number}\n')
+        file.write(f'{str(user)}\n')
 
 
 def print_contact(contact: list) -> None:
@@ -38,12 +38,25 @@ def print_contact(contact: list) -> None:
     # print('\n')
 
 
-def show_phonebook () -> None:
-    '''Показывает всю телефонную книгу'''
+def list_phonebook():
+    phonebook = []
     with open('phonebook.txt', 'r', encoding='utf-8') as file:
         for row in file:
-            user = row.split(';')
-            print_contact(user)
+            phonebook.append(row)
+    print(phonebook)
+
+
+def show_phonebook () -> None:
+    '''Показывает всю телефонную книгу'''
+    phonebook = []
+    with open('phonebook.txt', 'r', encoding='utf-8') as file:
+        for row in file:
+            phonebook.append(row)
+            print(row, end='')
+    print(phonebook)
+            # user = row.split(';')
+            # print(user)
+            # print_contact(user)
 
 def search_contact () -> None:
     search_str = input('Who you need?: ').upper()
@@ -55,20 +68,24 @@ def search_contact () -> None:
 
 
 fileName = 'phonebook.txt'
-def readData (fileName):
-    with open (fileName) as f:
-        phoneBook = []
-        for line in f:
-            phoneBook.append(line.split(';'))
-    return phoneBook
+# def readData (fileName):
+#     with open (fileName) as f:
+#         phoneBook = []
+#         for line in f:
+#             phoneBook.append(line.split(';'))
+#     return phoneBook
+#
+list_phonebook()
 
-print(readData(fileName))
+# print(readData(fileName))
 
 # add_user()
 #
-# show_phonebook()
+show_phonebook()
 #
 # search_contact()
+
+# rebild_id()
 
 def main ():
     while True:
