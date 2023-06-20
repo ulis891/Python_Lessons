@@ -16,7 +16,7 @@ def rebild_id():
                 row.split(';')[0] = count
             row
     with open('phonebook.txt', 'a+', encoding='utf-8') as file:
-        file.write(f'{};{name};{surname};{phone_number}\n')
+        # file.write(f'{};{name};{surname};{phone_number}\n')
 
 rebild_id()
 
