@@ -3,30 +3,16 @@
 """
 
 
-<<<<<<< HEAD
-def mul(a_a: int, b_b: int) -> int:
-    """Считаем степень числа"""
-    print(a_a, b_b)
-    if b_b < 2:
-        return 'Reshenie'
-    else:
-        return mul(a_a * st, b_b - 1)
-=======
 def mul(a: int, b: int) -> int:
     """Считаем степень числа"""
     if b < 2:
         return a
     else:
         return mul(a * st, b - 1)
->>>>>>> origin/HEAD
 
 
 st = n = int(input('Введите число: '))
 m = int(input('Введите степень: '))
-<<<<<<< HEAD
-rtt = mul(n, m)
-print(rtt)
-=======
 print(mul(n, m))
 
 
@@ -48,4 +34,3 @@ def summ(i: int, j: int) -> int:
 n = int(input('Введите первое число: '))
 m = int(input('Введите второе число: '))
 print(summ(n, m))
->>>>>>> origin/HEAD
