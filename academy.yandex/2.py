@@ -37,9 +37,13 @@
 #     else:
 #         second = 'Вася'
 #         therd = 'Петя'
-# print(f'1. {first}\n'
-#       f'2. {second}\n'
-#       f'3. {therd}')
+#
+# print(f'{" " * 8}{first: ^8}\n'
+#       f'{second: ^8}\n'
+#       f'{" " * 16}{therd: ^8}\n'
+#       f'{"II": ^8}'
+#       f'{"I": ^8}'
+#       f'{"III": ^8}')
 
 
 # year = int(input())
@@ -89,18 +93,52 @@
 #     second = str(n[2]) + str(n[1])
 # print(first, second)
 
-a = list(map(int, input()))
-b = list(map(int, input()))
-max_num = max([(max(a)), max(b)])
-min_num = min([(min(a)), min(b)])
-if max_num in a:
-    a.remove(max(a))
-    b.remove(min(b))
-else:
-    a.remove(min(a))
-    b.remove(max(b))
-mean_num = list(str(sum(a + b)))[-1]
-print(max_num, mean_num, min_num, sep='')
+# a = list(map(int, input()))
+# b = list(map(int, input()))
+# max_num = max([(max(a)), max(b)])
+# min_num = min([(min(a)), min(b)])
+# mean_num = []
+# if max_num in a and min_num in a:
+#     mean_num = b
+# elif max_num in b and min_num in b:
+#     mean_num = a
+# elif max_num in a and min_num in b:
+#     a.remove(max(a))
+#     b.remove(min(b))
+#     mean_num = a + b
+# else:
+#     a.remove(min(a))
+#     b.remove(max(b))
+#     mean_num = a + b
+# mean_num = list(str(sum(mean_num)))[-1]
+# print(max_num, mean_num, min_num, sep='')
 
 # mid_num = int(a.remove(max(a))) + b.remove(max(b))
 # print(mid_num)
+
+a = float(input())
+b = float(input())
+c = float(input())
+D = b**2 - 4 * a * c
+if a == b == c == 0:
+    print('Infinite solutions')
+elif a != 0 and b == 0 and c == 0:
+    print(f'{0:.2f}')
+elif a == 0 and b != 0:
+    print(f'{-c / b:.2f}')
+elif a != 0 and c != 0 and b == 0:
+    if -c / a > 0:
+        res = [(-c / a) ** 0.5, -(-c / a) ** 0.5]
+        print(f'{min(res):.2f} {max(res):.2f}')
+    else:
+        print('No solution')
+elif a != 0 and b != 0 and c == 0:
+    res = [0, -b / a]
+    print(f'{min(res):.2f} {max(res):.2f}')
+elif D > 0:
+    res = [(-b + D ** 0.5) / (2 * a), (-b - D ** 0.5) / (2 * a)]
+    print(f'{min(res):.2f} {max(res):.2f}')
+elif D == 0:
+    print(f'{-b / (2 * a):.2f}')
+else:
+    print('No solution')
