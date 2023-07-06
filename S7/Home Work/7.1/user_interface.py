@@ -7,7 +7,7 @@ def get_value(data):
 
 
 def get_format():
-    layout = input('input "cvs" or "txt" or "json": ')
+    layout = input('input "csv" or "txt" or "json": ')
     return layout
 
 
