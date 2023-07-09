@@ -116,29 +116,165 @@
 # mid_num = int(a.remove(max(a))) + b.remove(max(b))
 # print(mid_num)
 
-a = float(input())
-b = float(input())
-c = float(input())
-D = b**2 - 4 * a * c
-if a == b == c == 0:
-    print('Infinite solutions')
-elif a != 0 and b == 0 and c == 0:
-    print(f'{0:.2f}')
-elif a == 0 and b != 0:
-    print(f'{-c / b:.2f}')
-elif a != 0 and c != 0 and b == 0:
-    if -c / a > 0:
-        res = [(-c / a) ** 0.5, -(-c / a) ** 0.5]
-        print(f'{min(res):.2f} {max(res):.2f}')
-    else:
-        print('No solution')
-elif a != 0 and b != 0 and c == 0:
-    res = [0, -b / a]
-    print(f'{min(res):.2f} {max(res):.2f}')
-elif D > 0:
-    res = [(-b + D ** 0.5) / (2 * a), (-b - D ** 0.5) / (2 * a)]
-    print(f'{min(res):.2f} {max(res):.2f}')
-elif D == 0:
-    print(f'{-b / (2 * a):.2f}')
-else:
-    print('No solution')
+
+g = 29
+merch = input()
+price = int(input())
+weight = int(input())
+cash = int(input())
+print(f'{"Чек":=^35}\n'
+      f'Товар:{merch: >29}\n'
+      f'Цена:{" " * (18 - (len(str(weight) + str(price))))} {weight}кг * {price}руб/кг\n'
+      f'Итого:{" " * (26 - (len(str(price * weight))))}{price * weight}руб\n'
+      f'Внесено: {" " * (23 - (len(str(cash))))}{cash}руб\n'
+      f'Сдача: {" " * (25 - (len(str(cash - price * weight))))}{cash - price * weight}руб\n'
+      f'{"=" * 35}')
+
+# name = input()
+# num = input()
+# print(f'Группа №{num[0]}.\n'
+#       f'{num[2]}. {name}\n'
+#       f'Шкафчик: {num}.\n'
+#       f'Кроватка: {num[1]}')
+
+# x = int(input())
+# y = int(input())
+# ch3 = str(x % 10 + y % 10)[-1]
+# x = x // 10
+# y = y // 10
+# ch2 = str(x % 10 + y % 10)[-1]
+# x = x // 10
+# y = y // 10
+# ch1 = str(x % 10 + y % 10)[-1]
+# print(ch1, ch2, ch3, sep='')
+
+# h = int(input())
+# m = int(input())
+# t = int(input())
+#
+# ht =
+# mt = t % 60
+#
+#
+#
+# hh = h + (ht // 24) + ((m + mt) // 60)
+# mm = (m + mt) % 60
+#
+#
+# print((m + mt) // 60)
+# print(ht // 24)
+# print(f'{hh:0>2}:{mm:0>2}')
+
+# current_hour = int(input("Введите текущий час: "))
+# current_minute = int(input("Введите текущую минуту: "))
+# delivery_time = int(input("Введите время доставки в минутах: "))
+#
+# total_minutes = current_hour * 60 + current_minute + delivery_time
+# final_hour = (total_minutes // 60) % 24
+# final_minute = total_minutes % 60
+#
+#
+# print(f'{final_hour:0>2}:{final_minute:0>2}')
+
+
+
+
+# a = float(input())
+# b = float(input())
+# c = float(input())
+# D = b**2 - 4 * a * c
+# if a == b == c == 0:
+#     print('Infinite solutions')
+# elif a != 0 and b == 0 and c == 0:
+#     print(f'{0:.2f}')
+# elif a == 0 and b != 0:
+#     print(f'{-c / b:.2f}')
+# elif a != 0 and c != 0 and b == 0:
+#     if -c / a > 0:
+#         res = [(-c / a) ** 0.5, -(-c / a) ** 0.5]
+#         print(f'{min(res):.2f} {max(res):.2f}')
+#     else:
+#         print('No solution')
+# elif a != 0 and b != 0 and c == 0:
+#     res = [0, -b / a]
+#     print(f'{min(res):.2f} {max(res):.2f}')
+# elif D > 0:
+#     res = [(-b + D ** 0.5) / (2 * a), (-b - D ** 0.5) / (2 * a)]
+#     print(f'{min(res):.2f} {max(res):.2f}')
+# elif D == 0:
+#     print(f'{-b / (2 * a):.2f}')
+# else:
+#     print('No solution')
+
+
+# import math
+#
+# a = float(input())
+# b = float(input())
+# c = float(input())
+# pi = math.pi
+# deg = [math.acos((a**2 + c**2 - b**2) / (2 * a * c)) * (180 / pi),
+#        math.acos((a**2 + b**2 - c**2) / (2 * a * b)) * (180 / pi),
+#        math.acos((b**2 + c**2 - a**2) / (2 * b * c)) * (180 / pi)]
+#
+# for i in range(len(deg)):
+#     if deg[i] == 90:
+#         print('100%')
+#         break
+#     elif deg[i] > 90:
+#         print('велика')
+#         break
+#     elif i == 2 and deg[i] != 90 and deg[i] < 90:
+#         print('крайне мала')
+
+
+# num_1 = int(input())
+# num_2 = int(input())
+
+
+# def nod(a: int, b: int) -> int:
+#     if a % b == 0:
+#         return b
+#     else:
+#         return nod(b, a % b)
+#
+#
+# if num_2 > num_1:
+#     gcd = nod(num_2, num_1)
+# else:
+#     gcd = nod(num_1, num_2)
+#
+# lcm = int((abs(num_1 * num_2)) / gcd)
+# print(lcm)
+#
+# num = int(input())
+# def fackt(j):
+#     res = 1
+#     for i in range(j):
+#         res += i * res
+#     return res
+#
+# print(fackt(num))
+
+
+# x = 0
+# y = 0
+#
+#
+# while True:
+#     move = input()
+#     if move == 'СТОП':
+#         break
+#     step = int(input())
+#     if move == 'СЕВЕР':
+#         y += step
+#     elif move == 'ЮГ':
+#         y -= step
+#     elif move == 'ВОСТОК':
+#         x += step
+#     elif move == 'ЗАПАД':
+#         x += step
+# print(x)
+# print(y)
+
+print(sum(list(map(int, list(input())))))
