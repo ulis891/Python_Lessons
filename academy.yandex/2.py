@@ -117,18 +117,18 @@
 # print(mid_num)
 
 
-g = 29
-merch = input()
-price = int(input())
-weight = int(input())
-cash = int(input())
-print(f'{"Чек":=^35}\n'
-      f'Товар:{merch: >29}\n'
-      f'Цена:{" " * (18 - (len(str(weight) + str(price))))} {weight}кг * {price}руб/кг\n'
-      f'Итого:{" " * (26 - (len(str(price * weight))))}{price * weight}руб\n'
-      f'Внесено: {" " * (23 - (len(str(cash))))}{cash}руб\n'
-      f'Сдача: {" " * (25 - (len(str(cash - price * weight))))}{cash - price * weight}руб\n'
-      f'{"=" * 35}')
+# g = 29
+# merch = input()
+# price = int(input())
+# weight = int(input())
+# cash = int(input())
+# print(f'{"Чек":=^35}\n'
+#       f'Товар:{merch: >29}\n'
+#       f'Цена:{" " * (18 - (len(str(weight) + str(price))))} {weight}кг * {price}руб/кг\n'
+#       f'Итого:{" " * (26 - (len(str(price * weight))))}{price * weight}руб\n'
+#       f'Внесено: {" " * (23 - (len(str(cash))))}{cash}руб\n'
+#       f'Сдача: {" " * (25 - (len(str(cash - price * weight))))}{cash - price * weight}руб\n'
+#       f'{"=" * 35}')
 
 # name = input()
 # num = input()
@@ -175,8 +175,6 @@ print(f'{"Чек":=^35}\n'
 #
 #
 # print(f'{final_hour:0>2}:{final_minute:0>2}')
-
-
 
 
 # a = float(input())
@@ -277,4 +275,96 @@ print(f'{"Чек":=^35}\n'
 # print(x)
 # print(y)
 
-print(sum(list(map(int, list(input())))))
+# print(sum(list(map(int, list(input())))))
+
+
+# print(''.join(list(map(str, list(filter(lambda x: x % 2 != 0, list(map(int, list(input())))))))))
+
+
+# def prime(num: int) -> list:
+#     prime_list = []
+#     for i in range(num // 2 + 1, 2, -1):
+#         print(i)
+#         if i < 3:
+#             prime_list.append(i)
+#         else:
+#             for j in range(2, i // 2 + 1):
+#                 if i % j == 0:
+#                     break
+#                 if j == i // 2:
+#                     prime_list.append(j)
+#     return prime_list
+#
+#
+# print(prime(10))
+
+# for j in range(10):
+#     num = int(input())
+#     if num == 1:
+#         print('NO')
+#     elif num == 2 or num == 3:
+#         print('YES')
+#     else:
+#         for i in range(2, num // 2 + 2):
+#             if num % i == 0:
+#                 print('NO')
+#                 break
+#             if i == num // 2:
+#                 print('YES')
+#
+# rrr = int(input())
+#
+#
+# def is_prime(num):
+#     prime = num > 1 and (num % 2 != 0 or num == 2) and (num % 3 != 0 or num == 3)
+#     i = 5
+#     d = 2
+#
+#     while prime and i * i <= num:
+#         prime = num % i != 0
+#         i += d
+#         d = 6 - d
+#     return prime
+#
+#
+# def cheeknumb(num, del_list):
+#     for i in del_list:
+#         if num % i == 0:
+#             num = num / i
+#             result_list.append(i)
+#             cheeknumb(num, del_list)
+#             break
+#
+#
+# prime_list = [i for i in range(rrr // 2 + 1) if is_prime(i)]
+# prime_list.reverse()
+#
+# result_list = []
+# cheeknumb(rrr, prime_list)
+#
+# result_list.reverse()
+#
+# for i in range(len(result_list)):
+#     if i == len(result_list) - 1:
+#         print(f'{result_list[i]}')
+#     else:
+#         print(f'{result_list[i]} *', end=' ')
+
+
+
+
+num = 500
+
+
+
+while True:
+    print(num)
+    chek = input()
+    if chek == 'Угадал!':
+        break
+    elif chek == 'Больше':
+        1000 - num + num // 2
+        num = num // 2 + num
+    elif chek == 'Меньше':
+        num = num // 2
+
