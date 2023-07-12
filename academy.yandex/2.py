@@ -351,20 +351,61 @@
 #         print(f'{result_list[i]} *', end=' ')
 
 
+# num_list = [1, 1001]
+# print(num_list)
+# num = sum(num_list) // 2
+#
+# while True:
+#     print(num)
+#     chek = input()
+#     if chek == 'Угадал!':
+#         break
+#     elif chek == 'Больше':
+#         num_list[0] = num
+#         num = sum(num_list) // 2
+#         print(num_list)
+#     elif chek == 'Меньше':
+#         num_list[1] = num
+#         num = sum(num_list) // 2
+#         print(num_list)
+
+def check_hashes(N, blocks):
+    prev_hash = 0  # Хэш предыдущего блока
+    for i in range(N):
+        block = blocks[i]
+        m = block // 256 ** 2  # Полезная информация блока
+        r = (block // 256) % 256  # Случайное число блока
+        h = block % 256  # Хэш блока
+
+        if h != (37 * (m + r + prev_hash)) % 256 or h >= 100:
+            return i  # Номер первого блока с неправильным хэшем
+        prev_hash = h
+    return -1  # Все хэши правильные
 
 
-num = 500
+# Считываем количество блоков
+N = int(input())
 
+# Считываем блоки
+blocks = []
+for _ in range(N):
+    blocks.append(int(input()))
 
+# Проверяем хэши
+result = check_hashes(N, blocks)
 
-while True:
-    print(num)
-    chek = input()
-    if chek == 'Угадал!':
-        break
-    elif chek == 'Больше':
-        1000 - num + num // 2
-        num = num // 2 + num
-    elif chek == 'Меньше':
-        num = num // 2
+# Выводим результат
+print(result)
 
+# n = int(input())
+# p = 0
+# bad = - 1
+# for i in range(n+1):
+#     b = int(input())
+#     h, r, m = b % 256, (b // 256) % 256, b // 256 ** 2
+#     t = ((m + r + p) * 37) % 256
+#     if t != h or h >= 100:
+#         bad = i
+#         break
+#     p = h
+# print(bad)
