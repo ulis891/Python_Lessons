@@ -228,8 +228,8 @@
 
 # num_1 = int(input())
 # num_2 = int(input())
-
-
+#
+#
 # def nod(a: int, b: int) -> int:
 #     if a % b == 0:
 #         return b
@@ -369,43 +369,119 @@
 #         num = sum(num_list) // 2
 #         print(num_list)
 
-def check_hashes(N, blocks):
-    prev_hash = 0  # Хэш предыдущего блока
-    for i in range(N):
-        block = blocks[i]
-        m = block // 256 ** 2  # Полезная информация блока
-        r = (block // 256) % 256  # Случайное число блока
-        h = block % 256  # Хэш блока
+# def check_hashes(N, blocks):
+#     prev_hash = 0  # Хэш предыдущего блока
+#     for i in range(N):
+#         block = blocks[i]
+#         m = block // 256 ** 2  # Полезная информация блока
+#         r = (block // 256) % 256  # Случайное число блока
+#         h = block % 256  # Хэш блока
+#
+#         if h != (37 * (m + r + prev_hash)) % 256 or h >= 100:
+#             return i  # Номер первого блока с неправильным хэшем
+#         prev_hash = h
+#     return -1  # Все хэши правильные
+#
+#
+# # Считываем количество блоков
+# N = int(input())
+#
+# # Считываем блоки
+# blocks = []
+# for _ in range(N):
+#     blocks.append(int(input()))
+#
+# # Проверяем хэши
+# result = check_hashes(N, blocks)
+#
+# # Выводим результат
+# print(result)
 
-        if h != (37 * (m + r + prev_hash)) % 256 or h >= 100:
-            return i  # Номер первого блока с неправильным хэшем
-        prev_hash = h
-    return -1  # Все хэши правильные
+
+# num = int(input())
+#
+# counter = 1  # Переменная для отслеживания текущего числа
+#
+# for i in range(1, num + 1):
+#     for j in range(1, i + 1):
+#         if counter <= num:
+#             print(counter, end=" ")  # Выводим текущее число и пробел в строку
+#             counter += 1  # Увеличиваем счетчик текущего числа
+#     print()  # Переходим на новую строку
 
 
-# Считываем количество блоков
-N = int(input())
+# num = int(input())
+#
+# num_list = []
+# for i in range(num):
+#     num_list.append(sum(list(map(int, list(input())))))
+# print(sum(num_list))
 
-# Считываем блоки
-blocks = []
-for _ in range(N):
-    blocks.append(int(input()))
 
-# Проверяем хэши
-result = check_hashes(N, blocks)
+# num = int(input())
+# count = 0
+# for _ in range(num):
+#     text_list = []
+#     while (text := input()) != 'ВСЁ':
+#         text_list.append(text)
+#     if 'зайка' in text_list:
+#         count += 1
+# print(count)
 
-# Выводим результат
-print(result)
 
-# n = int(input())
-# p = 0
-# bad = - 1
-# for i in range(n+1):
-#     b = int(input())
-#     h, r, m = b % 256, (b // 256) % 256, b // 256 ** 2
-#     t = ((m + r + p) * 37) % 256
-#     if t != h or h >= 100:
-#         bad = i
+# def nod(a: int, b: int) -> int:
+#     if a % b == 0:
+#         return b
+#     else:
+#         return nod(b, a % b)
+
+
+# num_list = []
+# delit = []
+# for _ in range(num):
+#     num_list.append(int(input()))
+#
+# for i in range(len(num_list)):
+#     if i == len(num_list) - 1:
 #         break
-#     p = h
-# print(bad)
+#     delit.append(nod(num_list[i], num_list[i + 1]))
+#
+# index_count = []
+# for i in range(len(delit)):
+#     index_count.append(delit.count(delit[i]))
+#
+# print(delit[index_count.index(max(index_count))])
+
+# n = int(input())  # вводим сколько будет чисел
+# second_number = 0  # второе число для расчета НОДа на первом цикле
+#
+# for i in range(1, n + 1):
+#     first_number = int(input())
+#     # Ищем НОД по алгоритму Евклида (делением)
+#     while first_number != 0 and second_number != 0:
+#         if first_number > second_number:
+#             first_number %= second_number
+#         else:
+#             second_number %= first_number
+#     # Перезаписываем вторую переменную num2 НОДом.
+#     # На следующем цикле будем искать НОД нового введенного числа и полученного НОД
+#     second_number += first_number
+#
+# print(second_number)
+
+
+# num = int(input())
+# count = 2
+# for i in range(1, num + 1):
+#     count += 1
+#     for j in range(count, 0, -1):
+#         print(f'До старта {j} секунды(ы)')
+#     print(f'Старт {i}!!!')
+
+kids = int(input())
+num_dic = {}
+for i in range(kids):
+    name = input()
+    num = sum(list(map(int, list(input()))))
+    num_dic[num] = name
+print(num_dic[max(num_dic.keys())])
