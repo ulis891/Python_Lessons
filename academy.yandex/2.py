@@ -478,10 +478,120 @@
 #         print(f'До старта {j} секунды(ы)')
 #     print(f'Старт {i}!!!')
 
-kids = int(input())
-num_dic = {}
-for i in range(kids):
-    name = input()
-    num = sum(list(map(int, list(input()))))
-    num_dic[num] = name
-print(num_dic[max(num_dic.keys())])
+# kids = int(input())
+# num_dic = {}
+# for i in range(kids):
+#     name = input()
+#     num = sum(list(map(int, list(input()))))
+#     num_dic[num] = name
+# print(num_dic[max(num_dic.keys())])
+
+# kids = int(input())
+# nums = []
+# for i in range(kids):
+#     nums.append(input())
+#
+# max_nums = []
+# for i in nums:
+#     list(i)
+#     int(i)
+#     max_nums.append(max(i))
+# for j in range(len(max_nums)):
+#     print(max_nums[j], end='')
+
+# orange = int(input())
+# print("А Б В")
+# for i in range(1, orange):
+#     for j in range(1, orange):
+#         if (orange - i - j) > 0:
+#             print(i, j, orange - i - j)
+#         else:
+#             break
+
+
+# def is_prime(num):
+#     prime = num > 1 and (num % 2 != 0 or num == 2) and (num % 3 != 0 or num == 3)
+#     i = 5
+#     d = 2
+#
+#     while prime and i * i <= num:
+#         prime = num % i != 0
+#         i += d
+#         d = 6 - d
+#     return prime
+#
+#
+# count_num = int(input())
+# num_list = []
+# for _ in range(count_num):
+#     num_list.append(int(input()))
+#
+# count = 0
+#
+# for i in num_list:
+#     if is_prime(i):
+#         count += 1
+#
+# print(count)
+
+
+# height = int(input())
+# wide = int(input())
+# count = 1
+# sep = " "
+# mult = len(str(height * wide))
+#
+# for i in range(1, height + 1):
+#     if count != 1:
+#         print("")
+#     for j in range(1, wide + 1):
+#         if count < 10:
+#             print(sep * (mult - 1), end="")
+#         elif count < 100:
+#             print(sep * (mult - 2), end="")
+#         print(count, end=" ", sep="")
+#         count += 1
+
+
+# height = int(input())
+# wide = int(input())
+# count = 1
+# sep = " "
+# mult = len(str(height * wide))
+#
+# for i in range(1, height + 1):
+#     if i != 1:
+#         print("")
+#     for j in range(0, height * wide, height):
+#         if (i + j) < 10:
+#             print(sep * (mult - 1), end="")
+#         elif (i + j) < 100:
+#             print(sep * (mult - 2), end="")
+#         print(i + j, end=" ")
+
+
+height = int(input())
+wide = int(input())
+count = 1
+sep = " "
+mult = len(str(height * wide))
+
+for i in range(1, height + 1):
+    if count != 1:
+        print("")
+    if i % 2 != 0:
+        for j in range(1, wide + 1):
+            if count < 10:
+                print(sep * (mult - 1), end="")
+            elif count < 100:
+                print(sep * (mult - 2), end="")
+            print(count, end=" ", sep="")
+            count += 1
+    else:
+        for j in range(count + wide - 1, count - 1, -1):
+            if j < 10:
+                print(sep * (mult - 1), end="")
+            elif j < 100:
+                print(sep * (mult - 2), end="")
+            print(j, end=" ", sep="")
+            count += 1
