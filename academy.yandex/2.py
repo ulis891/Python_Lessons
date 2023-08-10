@@ -570,28 +570,126 @@
 #         print(i + j, end=" ")
 
 
-height = int(input())
-wide = int(input())
-count = 1
-sep = " "
-mult = len(str(height * wide))
+# height = int(input())
+# wide = int(input())
+# count = 1
+# sep = " "
+# mult = len(str(height * wide))
+#
+# for i in range(1, height + 1):
+#     if count != 1:
+#         print("")
+#     if i % 2 != 0:
+#         for j in range(1, wide + 1):
+#             if count < 10:
+#                 print(sep * (mult - 1), end="")
+#             elif count < 100:
+#                 print(sep * (mult - 2), end="")
+#             print(count, end=" ", sep="")
+#             count += 1
+#     else:
+#         for j in range(count + wide - 1, count - 1, -1):
+#             if j < 10:
+#                 print(sep * (mult - 1), end="")
+#             elif j < 100:
+#                 print(sep * (mult - 2), end="")
+#             print(j, end=" ", sep="")
+#             count += 1
 
-for i in range(1, height + 1):
-    if count != 1:
-        print("")
-    if i % 2 != 0:
-        for j in range(1, wide + 1):
-            if count < 10:
-                print(sep * (mult - 1), end="")
-            elif count < 100:
-                print(sep * (mult - 2), end="")
-            print(count, end=" ", sep="")
-            count += 1
-    else:
-        for j in range(count + wide - 1, count - 1, -1):
-            if j < 10:
-                print(sep * (mult - 1), end="")
-            elif j < 100:
-                print(sep * (mult - 2), end="")
-            print(j, end=" ", sep="")
-            count += 1
+
+# height = int(input())
+# wide = int(input())
+# lst = [[]] * height
+# count = 1
+# sep = " "
+# mult = len(str(height * wide))
+
+
+# def append_self(array: list, num: int):
+#     if len(array) == 0:
+#         return [num]
+#     else:
+#         array.append(num)
+#         return array
+#
+#
+# if wide % 2 == 0:
+#     col = int(wide / 2)
+# else:
+#     col = int(wide / 2 + 1)
+#
+# for j in range(col):
+#     for i in range(len(lst)):
+#         if count > wide * height:
+#             break
+#         lst[i] = append_self(lst[i], count)
+#         count += 1
+#
+#     for i in reversed(lst):
+#         if count > wide * height:
+#             break
+#         i.append(count)
+#         count += 1
+#
+# for k in lst:
+#     if k != lst[0]:
+#         print("")
+#     for j in k:
+#         if j < 10:
+#             print(sep * (mult - 1), end="")
+#         elif j < 100:
+#             print(sep * (mult - 2), end="")
+#         print(j, end=" ", sep="")
+
+# height = int(input())
+# wide = int(input())
+# sep = " "
+# mult = len(str(height * wide))
+#
+#
+# def print_num(num, j):
+#     global sep2, sep1
+#     if num < 10:
+#         sep1 = sep * mult
+#         sep2 = sep1
+#     elif num < 100:
+#         sep1 = sep
+#         sep2 = sep * mult
+#     result = sep1 + str(num) + sep2
+#     print(result, sep="", end="")
+#     # print(sep1, num, sep2, sep="", end="")
+#     if j < height:
+#         print("|", end="")
+#     return len(result)
+#
+#
+# for i in range(1, wide + 1):
+#     if i != 1:
+#         print("")
+#         separator = "-" * (tre * height + height)
+#         print(separator[:len(separator) - 1])
+#     for j in range(1, height + 1):
+#         tre = print_num(i * j, j)
+
+
+# def palindrome(text: str) -> bool:
+#     if len(text) == 1:
+#         return True
+#     else:
+#         for i in range(len(text)):
+#             if text[i] != text[-i - 1]:
+#                 return False
+#         return True
+#
+#
+# num = int(input())
+# lst = []
+# for _ in range(num):
+#     lst.append(input())
+#
+# count = 0
+# for j in lst:
+#     if palindrome(j):
+#         count += 1
+#
+# print(count)
