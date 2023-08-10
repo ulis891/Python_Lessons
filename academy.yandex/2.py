@@ -693,3 +693,8 @@
 #         count += 1
 #
 # print(count)
+
+num = int(input())
+lst = []
+for i in range(1, num + 1):
+    lst.append([i])
