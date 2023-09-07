@@ -34,5 +34,5 @@ def ten_to_hex(ten: int) -> str:
 num = int(input("Введите число: "))
 res = []
 
-print("Результат полученый через вручную - " + ten_to_hex(num))
+print("Результат полученый вручную - " + ten_to_hex(num))
 print("Результат полученый через hex() - " + hex(num))
