@@ -18,27 +18,7 @@
 1 1 1
 """
 
-num = int(input())
-count = 1
-for i in range(num):
-    print(1, end=" ")
-
-    for j in range(num - 2):
-        if i > 0 == j:
-            count += 1
-            # print(count, end=" ")
-        print(count, end=" ")
-        # print(count, end=" ")
-    print(1)
-
-
-def print_nums(n, cnt):
-    for _ in range(n - 2):
-        cnt += 1
-        print(cnt, end="")
-    for _ in range(n - 2):
-        cnt -= 1
-        print(cnt, end="")
-
-
-print_nums(5 , 1)
+n = int(input())
+a = [[min(i + 1, n - i, j + 1, n - j) for j in range(n)] for i in range(n)]
+for row in a:
+    print(*row)
