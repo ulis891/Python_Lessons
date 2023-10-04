@@ -1,7 +1,7 @@
 import time
 
 
-def view_data(data: str | list) -> None:
+def view_data(data) -> None:  # todo str | list
     """
     Выводит в консоль заметки в заданном формате
     :param data: заметка в виде строки или списка
