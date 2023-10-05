@@ -8,4 +8,4 @@ def cvs_export(id: int, date: float, title: str, note: str) -> None:
     :return: None
     """
     with open('DataBase/csvDB.csv', 'a+', encoding='utf-8') as file:
-        file.write('{};{};{};{}\n'.format(id, date, title, note))
+        file.write('{};{};{};{}\n'.format(id, date, title.upper(), note))

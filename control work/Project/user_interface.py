@@ -1,23 +1,25 @@
 import time
+import import_db
 
-
-def view_data(data) -> None:  # todo str | list
+def view_data(data, end="\n") -> None:  # todo str | list
     """
     Выводит в консоль заметки в заданном формате
     :param data: заметка в виде строки или списка
+    :param end: окончание стрроки
     :return:
     """
     if isinstance(data, list):
         print("ID: ", end="")
         for i in range(len(data)):
             if i == 1:
-                print(time.strftime("%d.%m.%Y %H:%M:%S", time.localtime(float(data[i]))))
+                print("Date: ", end="")
+                print(time.strftime("%d.%m.%Y %H:%M:%S", time.localtime(float(data[i]))), end=end)
             elif i == 2:
-                print("Title: {}".format(data[i].upper()))
+                print("Title: {}".format(data[i]), end=end)
             else:
-                print(data[i])
+                print(data[i], end=end)
     else:
-        print(data)
+        print(data, end=end)
 
 
 def get_value(data: str):
@@ -34,7 +36,7 @@ def get_format() -> str:
     Запрашивет у пользователя формат вывода заметок
     :return: строка с форматом вывода
     """
-    layout = input('input "csv" or "txt" fromat: ')
+    layout = get_value('input "csv" or "txt" fromat: ')
     return layout
 
 
@@ -43,11 +45,27 @@ def get_action() -> str:
     Запрашивает у пользователя команду к исполнению
     :return: строка с кодом команды
     """
-    action = input("""Input command:
+    action = get_value("""Input command:
         "w"  to write new note
         "r"  to read data base
-        "q"  to exit: """)
+        "q"  to exit
+        Your command: """)
     return action
+
+def get_date():
+    file = import_db.read_file()
+    date = {}
+    for row in file:
+        year = time.strftime("%Y", time.localtime(float(row[1])))
+        month = time.strftime("%m", time.localtime(float(row[1])))
+        day = time.strftime("%d", time.localtime(float(row[1])))
+        date[year] = [].append({month: day})
+
+
+
+    # data = get_value("""Input command: """)
+    return data
+
 
 
 def unknown():

@@ -9,7 +9,8 @@ def db_import():
     while True:
         command = ui.get_format()
         if command == "txt" or command == "csv":
-            print("Notes:", end="\n\n")
+            ui.view_data("")
+            ui.view_data("Notes:", end="\n\n")
             with open('DataBase/csvDB.csv', encoding='utf-8') as file:
                 for line in file:
                     if command == 'csv':
@@ -20,3 +21,11 @@ def db_import():
         else:
             ui.unknown()
         break
+
+
+def read_file():
+    rows = []
+    with open('DataBase/csvDB.csv', encoding='utf-8') as file:
+        for row in file:
+            rows.append(row)
+        return rows
