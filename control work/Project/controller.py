@@ -14,17 +14,12 @@ def button_click():
             title = ui.get_value('title')
             note = ui.get_value('note')
             e.cvs_export(id, date, title, note)
-            # note = ui.get_value('note')
-            # description = ui.get_value('description')
-            # e.txt_export(title, note, tel, description)
-            # e.json_export(surname, name, tel, description)
-
         elif action == 'r':
             i.db_import()
-
+        elif action == 'd':
+            i.db_import_by_date()
         elif action == 'q':
             break
-
         else:
             ui.unknown()
 

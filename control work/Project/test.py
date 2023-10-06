@@ -104,29 +104,31 @@ print(type(list))
 
 def get_date_dic():
     file = import_db.read_file()
-    date = {}
-    month_list = []
-    day_list = []
+    date = []
 
     for row in file:
         row = row.split(";")[1]
         year = time.strftime("%Y", time.localtime(float(row)))
         month = time.strftime("%m", time.localtime(float(row)))
         day = time.strftime("%d", time.localtime(float(row)))
-        if len(date[year]) == 0:
-            month_list.append({month: day})
-            date[year] = month_list
+        if len(date) == 0:
+            date.append([{year: [{month: [day]}]}])
+        else:
+            for years in date:
+                for i in years:
+                    if year in i.keys():
+                        for j in i[year]:
+                            if month in j.keys():
+                                if day in j[month]:
+                                    continue
+                                else:
+                                    j[month].append(day)
+                            else:
+                                i[year].append({month: []})
+                    else:
+                        date.append([{year: [{month: [day]}]}])
 
+    print(*date)
 
-
-        print(year, month, day)
-        month_list.append({month: [day]})
-        date[year] = month_list
-        print(date)
 
 get_date_dic()
-
-    #
-    # # data = get_value("""Input command: """)
-    # return data
-

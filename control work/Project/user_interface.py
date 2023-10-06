@@ -52,20 +52,6 @@ def get_action() -> str:
         Your command: """)
     return action
 
-def get_date():
-    file = import_db.read_file()
-    date = {}
-    for row in file:
-        year = time.strftime("%Y", time.localtime(float(row[1])))
-        month = time.strftime("%m", time.localtime(float(row[1])))
-        day = time.strftime("%d", time.localtime(float(row[1])))
-        date[year] = [].append({month: day})
-
-
-
-    # data = get_value("""Input command: """)
-    return data
-
 
 
 def unknown():
