@@ -112,23 +112,74 @@ def get_date_dic():
         month = time.strftime("%m", time.localtime(float(row)))
         day = time.strftime("%d", time.localtime(float(row)))
         if len(date) == 0:
-            date.append([{year: [{month: [day]}]}])
+            date.append({year: [{month: [day]}]})
         else:
             for years in date:
-                for i in years:
-                    if year in i.keys():
-                        for j in i[year]:
-                            if month in j.keys():
-                                if day in j[month]:
-                                    continue
-                                else:
-                                    j[month].append(day)
+                if year in years.keys():
+                    for j in years[year]:
+                        if month in j.keys():
+                            if day in j[month]:
+                                continue
                             else:
-                                i[year].append({month: []})
-                    else:
-                        date.append([{year: [{month: [day]}]}])
+                                j[month].append(day)
+                        else:
+                            years[year].append({month: []})
+                else:
+                    date.append({year: [{month: [day]}]})
+    #
+    # print(date)
+    return date
 
-    print(*date)
+
+# get_date_dic()
+
+def choise_date(data_list: list):
+    note_data = []
+    year_list = []
+    month_list = []
+    day_list = []
+    print(data_list)
+    ui.print_info("Choose the year of the note or leave the field empty to show all the notes")
+    for year in data_list:
+        year_list.append(*year)
+        print(*year)
+    choise_year = ui.get_value("Enter year: ")
+    if len(choise_year) == 0:
+        import_db.db_import()
+    elif choise_year in year_list:
+        note_data.append(choise_year)
+        ui.print_info(f"Choose the month of the note or leave the field empty to show all the notes in {choise_year}")
+        for year in data_list:
+            for months in year.values():
+                for month in months:
+                    month_list.append(*month)
+                    print(*month)
+        choise_month = ui.get_value("Enter month: ")
+        if len(choise_month) == 0:
+            import_db.db_import_by_date(year=choise_year, month="", day="")
+        else:
+            note_data.append(choise_month)
+            ui.print_info(
+                f"Choose the day of the note"
+                f" or leave the field empty to show all the notes in {choise_month}.{choise_year}")
+            for year in data_list:
+                for months in year.values():
+                    for month in months:
+                        for days in month.values():
+                            for day in days:
+                                day_list.append(day)
+                                print(day)
+            choise_day = ui.get_value("Enter day: ")
+            if len(choise_day) == 0:
+                import_db.db_import_by_date(year=choise_year, month=choise_month, day="")
+            elif choise_day in day_list:
+                import_db.db_import_by_date(year=choise_year, month=choise_month, day=choise_day)
+            else:
+                ui.unknown()
+    else:   # todo сделать так, что бы выводились только месяца выбранного года и дни выбранного месяца.
+            # Добавить поведение на случай неверного воода
+        ui.unknown()
+    import_db.db_import_by_date(year="", month="", day="")
 
 
-get_date_dic()
+choise_date(get_date_dic())

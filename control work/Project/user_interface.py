@@ -1,6 +1,7 @@
 import time
 import import_db
 
+
 def view_data(data, end="\n") -> None:  # todo str | list
     """
     Выводит в консоль заметки в заданном формате
@@ -28,30 +29,32 @@ def get_value(data: str):
     :param data: строка с требующейся информации
     :return: строка в введённой информацией
     """
-    return input(f'{data} = ')
+    return input(data)
+
+def print_info(data: str) -> None:
+    print(data)
 
 
-def get_format() -> str:
-    """
-    Запрашивет у пользователя формат вывода заметок
-    :return: строка с форматом вывода
-    """
-    layout = get_value('input "csv" or "txt" fromat: ')
-    return layout
+# def get_format() -> str:
+#     """
+#     Запрашивет у пользователя формат вывода заметок
+#     :return: строка с форматом вывода
+#     """
+#     layout = get_value('input "csv" or "txt" fromat: ')
+#     return layout
 
 
-def get_action() -> str:
-    """
-    Запрашивает у пользователя команду к исполнению
-    :return: строка с кодом команды
-    """
-    action = get_value("""Input command:
-        "w"  to write new note
-        "r"  to read data base
-        "q"  to exit
-        Your command: """)
-    return action
-
+# def get_action() -> str:
+#     """
+#     Запрашивает у пользователя команду к исполнению
+#     :return: строка с кодом команды
+#     """
+#     action = get_value("""Input command:
+#         "w"  to write new note
+#         "r"  to read data base
+#         "q"  to exit
+#         Your command: """)
+#     return action
 
 
 def unknown():
