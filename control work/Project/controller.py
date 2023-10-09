@@ -20,8 +20,9 @@ def button_click():
             e.cvs_export(id, date, title, note)
         elif action == 'r':
             i.db_import()
-        elif action == 'd':
-            i.db_import_by_date()
+        elif action == 'e':
+            i.db_import_all()
+
         elif action == 'q':
             break
         else:
@@ -55,3 +56,11 @@ def rebild_id() -> None:
     with open('DataBase/csvDB.csv', 'w', encoding='utf-8') as file:
         for note in book:
             file.write(note)
+
+
+def edit_note():
+    edit_id = ui.get_value("Input note ID to edit: ")
+    file = i.read_file()
+    for note in file:
+        if note.split(";")[0] == edit_id:
+            # todo доделать редактирование заметки

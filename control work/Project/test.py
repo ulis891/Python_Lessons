@@ -152,11 +152,14 @@ def choise_date(data_list: list):
         for year in data_list:
             for months in year.values():
                 for month in months:
-                    month_list.append(*month)
-                    print(*month)
+                    if str(*year) == choise_year:
+                        month_list.append(*month)
+                        print(*month)
         choise_month = ui.get_value("Enter month: ")
         if len(choise_month) == 0:
-            import_db.db_import_by_date(year=choise_year, month="", day="")
+            import_db.db_import(year=choise_year, month="", day="")
+        elif choise_month not in month_list:
+            ui.unknown()
         else:
             note_data.append(choise_month)
             ui.print_info(
@@ -167,19 +170,18 @@ def choise_date(data_list: list):
                     for month in months:
                         for days in month.values():
                             for day in days:
-                                day_list.append(day)
-                                print(day)
+                                if str(*year) == choise_year and str(*month) == choise_month:
+                                    day_list.append(day)
+                                    print(day)
             choise_day = ui.get_value("Enter day: ")
             if len(choise_day) == 0:
-                import_db.db_import_by_date(year=choise_year, month=choise_month, day="")
+                import_db.db_import(year=choise_year, month=choise_month, day="")
             elif choise_day in day_list:
-                import_db.db_import_by_date(year=choise_year, month=choise_month, day=choise_day)
+                import_db.db_import(year=choise_year, month=choise_month, day=choise_day)
             else:
                 ui.unknown()
-    else:   # todo сделать так, что бы выводились только месяца выбранного года и дни выбранного месяца.
-            # Добавить поведение на случай неверного воода
+    else:
         ui.unknown()
-    import_db.db_import_by_date(year="", month="", day="")
 
 
 choise_date(get_date_dic())

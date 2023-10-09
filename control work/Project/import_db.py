@@ -10,7 +10,8 @@ def read_file():
             rows.append(row)
         return rows
 
-def db_import():
+
+def db_import_all():
     """
     Выводит информацию
     :return:
@@ -32,13 +33,14 @@ def db_import():
         break
 
 
-
-
-def db_import_by_date(year="", month="", day=""):    # todo написать функцию для выбора даты заметки
+def db_import(year="", month="", day=""):
     """
-        Выводит информацию
-        :return:
-        """
+    Выводит информацию
+    @param year: год создания или редактирования заметки
+    @param month: месяц создания или редактирования заметки
+    @param day: день создания или редактирования заметки
+    @return: None
+    """
     while True:
         command = ui.get_value("input 'csv' or 'txt' fromat: ")
         if command == "txt" or command == "csv":
@@ -59,11 +61,10 @@ def db_import_by_date(year="", month="", day=""):    # todo написать ф�
                 if command == 'csv':
                     ui.view_data(line)
                 elif command == 'txt':
-                    ui.view_data(row)
+                    ui.view_data(line.split(";"))
         else:
             ui.unknown()
         break
-
 
 
 def get_date_info():
@@ -91,5 +92,81 @@ def get_date_info():
                                 i[year].append({month: []})
                     else:
                         date.append([{year: [{month: [day]}]}])
-
     return date
+
+
+def get_date_dic():
+    file = read_file()
+    date = []
+
+    for row in file:
+        row = row.split(";")[1]
+        year = time.strftime("%Y", time.localtime(float(row)))
+        month = time.strftime("%m", time.localtime(float(row)))
+        day = time.strftime("%d", time.localtime(float(row)))
+        if len(date) == 0:
+            date.append({year: [{month: [day]}]})
+        else:
+            for years in date:
+                if year in years.keys():
+                    for j in years[year]:
+                        if month in j.keys():
+                            if day in j[month]:
+                                continue
+                            else:
+                                j[month].append(day)
+                        else:
+                            years[year].append({month: []})
+                else:
+                    date.append({year: [{month: [day]}]})
+    return date
+
+
+def choise_date(data_list: list):
+    note_data = []
+    year_list = []
+    month_list = []
+    day_list = []
+    ui.print_info("Choose the year of the note or leave the field empty to show all the notes")
+    for year in data_list:
+        year_list.append(*year)
+        print(*year)
+    choise_year = ui.get_value("Enter year: ")
+    if len(choise_year) == 0:
+        db_import(year="", month="", day="")
+    elif choise_year in year_list:
+        note_data.append(choise_year)
+        ui.print_info(f"Choose the month of the note or leave the field empty to show all the notes in {choise_year}")
+        for year in data_list:
+            for months in year.values():
+                for month in months:
+                    if str(*year) == choise_year:
+                        month_list.append(*month)
+                        print(*month)
+        choise_month = ui.get_value("Enter month: ")
+        if len(choise_month) == 0:
+            db_import(year=choise_year, month="", day="")
+        elif choise_month not in month_list:
+            ui.unknown()
+        else:
+            note_data.append(choise_month)
+            ui.print_info(
+                f"Choose the day of the note"
+                f" or leave the field empty to show all the notes in {choise_month}.{choise_year}")
+            for year in data_list:
+                for months in year.values():
+                    for month in months:
+                        for days in month.values():
+                            for day in days:
+                                if str(*year) == choise_year and str(*month) == choise_month:
+                                    day_list.append(day)
+                                    print(day)
+            choise_day = ui.get_value("Enter day: ")
+            if len(choise_day) == 0:
+                db_import(year=choise_year, month=choise_month, day="")
+            elif choise_day in day_list:
+                db_import(year=choise_year, month=choise_month, day=choise_day)
+            else:
+                ui.unknown()
+    else:
+        ui.unknown()
