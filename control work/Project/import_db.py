@@ -3,7 +3,11 @@ import time
 import user_interface as ui
 
 
-def read_file():
+def read_file() -> list:
+    """
+    Возвращает список строк из базы заметок
+    :return:
+    """
     rows = []
     with open('DataBase/csvDB.csv', encoding='utf-8') as file:
         for row in file:
@@ -11,13 +15,14 @@ def read_file():
         return rows
 
 
-def db_import_all():
+def db_import_all(command="txt"):
     """
-    Выводит информацию
+    Выводит все заметки в заданном виде.
+    По умолчанию в формотированном виде
+    :param command: "txt" или "csv"
     :return:
     """
     while True:
-        command = ui.get_value("input 'csv' or 'txt' fromat: ")
         if command == "txt" or command == "csv":
             ui.view_data("")
             ui.view_data("Notes:", end="\n\n")
@@ -68,6 +73,14 @@ def db_import(year="", month="", day=""):
 
 
 def get_date_info():
+    """
+    Проходится по файлу с заметками и возвращает даты заметок в формате
+    [{year_1 : [{month_1 : [day_1, day_2,...]},
+                {month_2 : [day_1, day_2,...]}],
+    {year_2 : [{month_3 : [day_1, day_2,...]},
+                {month_4 : [day_1, day_2,...]}]}]
+    :return: Список словарей дат заметок
+    """
     file = read_file()
     date = []
 
@@ -98,7 +111,6 @@ def get_date_info():
 def get_date_dic():
     file = read_file()
     date = []
-
     for row in file:
         row = row.split(";")[1]
         year = time.strftime("%Y", time.localtime(float(row)))
@@ -123,14 +135,20 @@ def get_date_dic():
 
 
 def choise_date(data_list: list):
+    """
+    Запрашивает у пользователя дату необходимых заметок
+    :param data_list: Список словарей дат заметок
+    :return:
+    """
     note_data = []
     year_list = []
     month_list = []
     day_list = []
     ui.print_info("Choose the year of the note or leave the field empty to show all the notes")
     for year in data_list:
-        year_list.append(*year)
-        print(*year)
+        if str(*year) not in year_list:
+            year_list.append(*year)
+            print(*year)
     choise_year = ui.get_value("Enter year: ")
     if len(choise_year) == 0:
         db_import(year="", month="", day="")
@@ -141,8 +159,9 @@ def choise_date(data_list: list):
             for months in year.values():
                 for month in months:
                     if str(*year) == choise_year:
-                        month_list.append(*month)
-                        print(*month)
+                        if str(*month) not in month_list:
+                            month_list.append(*month)
+                            print(*month)
         choise_month = ui.get_value("Enter month: ")
         if len(choise_month) == 0:
             db_import(year=choise_year, month="", day="")
@@ -159,8 +178,9 @@ def choise_date(data_list: list):
                         for days in month.values():
                             for day in days:
                                 if str(*year) == choise_year and str(*month) == choise_month:
-                                    day_list.append(day)
-                                    print(day)
+                                    if day not in day_list:
+                                        day_list.append(day)
+                                        print(day)
             choise_day = ui.get_value("Enter day: ")
             if len(choise_day) == 0:
                 db_import(year=choise_year, month=choise_month, day="")

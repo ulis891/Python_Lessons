@@ -1,4 +1,4 @@
-def cvs_export(id: int, date: float, title: str, note: str) -> None:
+def cvs_export(id: str, date: str, title: str, note: str) -> None:
     """
     Записывает в файл введённую заметку
     :param id: идентификатор заметки
