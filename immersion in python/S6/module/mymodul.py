@@ -1,7 +1,7 @@
 import sys
-from random import randint
-from datetime import datetime as dt
 from calendar import isleap
+from datetime import datetime as dt
+from random import randint
 
 _ridel_log = dict()
 
@@ -60,7 +60,6 @@ def check_date(date: str):
         return False
 
 
-
 def check_date_terminal():
     date = sys.argv[1]
     day, month, year = list(map(int, date.split(".")))
@@ -70,7 +69,6 @@ def check_date_terminal():
         return True
     except:
         return False
-
 
 
 def _check_leap(year):

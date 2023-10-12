@@ -1,4 +1,4 @@
-from modul import mymodul as my
+from module import mymodul as my
 import sys
 
 
