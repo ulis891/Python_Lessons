@@ -1,8 +1,8 @@
-from module import mymodul as my
-import sys
 
 
-# print(my.gen(sys.argv))
-print(my.riddle_game("Вопрос?", ["1", "2", "3", "4", "5"], 5))
-my.check_date_terminal()
+import re
+str = "3 товара за 209.99"
+pat = r"\d+.\d"
+match = re.search(pat, str)
 
+print(match.group())
